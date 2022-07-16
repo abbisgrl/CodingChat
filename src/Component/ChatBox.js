@@ -16,6 +16,7 @@ const ChatBox = () => {
 
     function sendMessage(e) {
         e.preventDefault();
+        setInput('');
     }
 
     return (

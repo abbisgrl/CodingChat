@@ -38,8 +38,10 @@
     background-position: center;
     padding: 30px;
     overflow: scroll;
-
 }
+.Chat_body::-webkit-scrollbar {
+    display: none;
+  }
 
 .Chat_message{
     position: relative;
