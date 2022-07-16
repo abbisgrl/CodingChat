@@ -1,16 +1,22 @@
 import { Avatar, IconButton } from "@mui/material";
 import { AttachFile, MoreVert, SearchOutlined } from '@mui/icons-material'
+import MicIcon from '@mui/icons-material/Mic';
+import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import React, { useEffect, useState } from "react";
 import '../Css/ChatBox.css'
 
 
 const ChatBox = () => {
     const [seed, setSeed] = useState('');
+    const [input, setInput] = useState('');
 
     useEffect(() => {
         setSeed(Math.floor(Math.random() * 5000));
     }, []);
 
+    function sendMessage(e) {
+        e.preventDefault();
+    }
 
     return (
         <div className="Chat">
@@ -46,7 +52,12 @@ const ChatBox = () => {
             </div>
 
             <div className="Chat_footer">
-
+                <EmojiEmotionsIcon />
+                <form action="">
+                    <input type="text" value={input} onChange={e => setInput(e.target.value)} />
+                    <button onClick={sendMessage}>Send</button>
+                </form>
+                <MicIcon />
             </div>
         </div>
     );
