@@ -3,7 +3,7 @@ import { AttachFile, MoreVert, SearchOutlined } from '@mui/icons-material'
 import MicIcon from '@mui/icons-material/Mic';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import React, { useEffect, useState } from "react";
-import {useParams} from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import db from '../firebase';
 import '../Css/ChatBox.css';
 
@@ -11,17 +11,17 @@ import '../Css/ChatBox.css';
 const ChatBox = () => {
     const [seed, setSeed] = useState('');
     const [input, setInput] = useState('');
-    const {roomId} = useParams();
-    const [roomName ,setRoomName] = useState('');
+    const { roomId } = useParams();
+    const [roomName, setRoomName] = useState('');
 
-    useEffect(()=>{
-        if(roomId){
+    useEffect(() => {
+        if (roomId) {
             db.collection('rooms').doc(roomId).
-            onSnapshot((snapshot =>(
-                setRoomName(snapshot.data().name)
-            )))
+                onSnapshot((snapshot => (
+                    setRoomName(snapshot.data().name)
+                )))
         }
-    },[roomId])
+    }, [roomId])
 
     useEffect(() => {
         setSeed(Math.floor(Math.random() * 5000));
