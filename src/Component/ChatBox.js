@@ -58,27 +58,27 @@ const ChatBox = () => {
                 <div className="Chat_headerInfo">
                     <h3>{roomName}</h3>
                     <p>Last seen {" "}
-                    {new Date(
-                        messages[messages.length-1]?.
-                        timestamp?.toDate()
-                    ).toUTCString()}</p>
+                        {new Date(
+                            messages[messages.length - 1]?.
+                                timestamp?.toDate()
+                        ).toUTCString()}</p>
                 </div>
                 <div className="Chat_headerRight">
                     <IconButton>
-                        <AttachFile fontSize="small" />
+                        <AttachFile fontSize="small" color="primary" />
                     </IconButton>
                     <IconButton>
-                        <MoreVert fontSize="small" />
+                        <MoreVert fontSize="small" color="primary" />
                     </IconButton>
                     <IconButton>
-                        <SearchOutlined fontSize="small" />
+                        <SearchOutlined fontSize="small" color="primary" />
                     </IconButton>
                 </div>
             </div>
 
             <div className="Chat_body">
                 {messages.map((message) => (
-                    <p className={`Chat_message  ${message.name===user.displayName && 'Chat_reciever'}`}>
+                    <p className={`Chat_message  ${message.name === user.displayName && 'Chat_reciever'}`}>
                         <span className="Chat_name">
                             {message.name}
                         </span>

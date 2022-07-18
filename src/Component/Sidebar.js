@@ -29,13 +29,13 @@ const Sidebar = () => {
                 <Avatar src={user?.photoURL} />
                 <div className="header_right">
                     <IconButton>
-                        <DonutLargeIcon fontSize="small" />
+                        <DonutLargeIcon fontSize="small" color="primary" />
                     </IconButton>
                     <IconButton>
-                        <ChatIcon fontSize="small" />
+                        <ChatIcon fontSize="small" color="primary" />
                     </IconButton>
                     <IconButton>
-                        <MoreVertIcon fontSize="small" />
+                        <MoreVertIcon fontSize="small" color="primary" />
                     </IconButton>
 
                 </div>
