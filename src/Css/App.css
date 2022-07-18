@@ -1,6 +1,6 @@
 .App {
   display: grid;
-  background-color: aquamarine;
+  background-image: linear-gradient(to right, #000428 , #004e92);
   place-items: center;
   height: 100vh;
 }

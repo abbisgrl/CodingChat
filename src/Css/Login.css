@@ -1,5 +1,5 @@
 .Login{
-    background-color: aliceblue;
+    background-image: linear-gradient(to right, #bdc3c7 , #2c3e50);
     height: 100vh;
     width: 100vw;
     display: grid;
@@ -9,20 +9,22 @@
 .Login_container{
     padding: 100px;
     text-align: center;
-    background-color: white;
+    background-color: darkslategray;
     border-radius: 10px;
+    font-family: cursive;
+    color: burlywood;
     box-shadow: 0 1px 3px rgba((0), 0, 0, 0.12),0 1px;
 }
 
 .Login_container > img{
     object-fit: contain;
-    height: 100px;
+    height: 150px;
     margin-bottom: 40px;
 }
 
 .Login_container > button{
     margin-top: 50px;
     text-transform: inherit !important;
-    background-color: aqua;
-    color: coral;
+    background-color: lightgrey;
+    color: blue;
 }

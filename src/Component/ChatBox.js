@@ -57,7 +57,11 @@ const ChatBox = () => {
                 <Avatar src={`https://avatars.dicebear.com/api/human/${seed}.svg`} />
                 <div className="Chat_headerInfo">
                     <h3>{roomName}</h3>
-                    <p>Last seen at ...</p>
+                    <p>Last seen {" "}
+                    {new Date(
+                        messages[messages.length-1]?.
+                        timestamp?.toDate()
+                    ).toUTCString()}</p>
                 </div>
                 <div className="Chat_headerRight">
                     <IconButton>
@@ -74,7 +78,7 @@ const ChatBox = () => {
 
             <div className="Chat_body">
                 {messages.map((message) => (
-                    <p className={`Chat_message  ${true && 'Chat_reciever'}`}>
+                    <p className={`Chat_message  ${message.name===user.displayName && 'Chat_reciever'}`}>
                         <span className="Chat_name">
                             {message.name}
                         </span>
