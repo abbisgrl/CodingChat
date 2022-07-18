@@ -1,6 +1,6 @@
 .App {
   display: grid;
-  background-image: linear-gradient(to right, #000428 , #004e92);
+  background-color: #696969;
   place-items: center;
   height: 100vh;
 }
@@ -9,8 +9,8 @@
   display: flex;
   /* background-image: linear-gradient(to right, #ffd89b );☻ */
   background-color: #111B21;
-  margin-top: -20px;
-  height: 90vh;
-  width: 90vw;
+  margin-top: -15px;
+  height: 95vh;
+  width: 95vw;
   box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.5);
 }
