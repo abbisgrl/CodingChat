@@ -7,7 +7,8 @@
 
 .main_box {
   display: flex;
-  background-color: antiquewhite;
+  /* background-image: linear-gradient(to right, #ffd89b );☻ */
+  background-color: #111B21;
   margin-top: -20px;
   height: 90vh;
   width: 90vw;
