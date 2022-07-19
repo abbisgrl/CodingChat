@@ -3,10 +3,12 @@ import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import '../Css/SidebarChat.css';
 import db from '../firebase';
+import Popup from "./Popup";
 
 const SidebarChat = ({ id, name, addNewChat }) => {
     const [seed, setSeed] = useState('');
     const [message, setMessages] = useState('');
+    const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
         setSeed(Math.floor(Math.random() * 5000));
@@ -20,17 +22,13 @@ const SidebarChat = ({ id, name, addNewChat }) => {
                     setMessages(snapshot.docs.map((doc) =>
                         doc.data())))
         }
-    },[id]);
-    
-    const createChat = () => {
-        const roomName = prompt("Please enter name for chat");
+    }, [id]);
 
-        if (roomName) {
-            db.collection('rooms').add({
-                name: roomName,
-            });
-        }
-    };
+    const togglePopup = () => {
+        setIsOpen(!isOpen);
+    }
+
+    
     return !addNewChat ? (
         <Link to={`/rooms/${id}`}>
             <div className="sideChat">
@@ -43,9 +41,12 @@ const SidebarChat = ({ id, name, addNewChat }) => {
         </Link>
 
     ) : (
-        <div onClick={createChat}
+        <div
             className="sideChat">
-            <h2>Add new Chat</h2>
+            <h2 onClick={togglePopup}>Add new Chat</h2>
+            {isOpen && <Popup
+                handleClose={togglePopup}
+            />}
         </div>
     )
 }

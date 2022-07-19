@@ -1,0 +1,26 @@
+/* Popup style */
+
+  .box {
+    position: relative;
+    font-size: 1.5rem;
+    width: 70%;
+    margin: 0 auto;
+    height: auto;
+    max-height: 70vh;
+    margin-top: calc(100vh - 85vh - 20px);
+    background: #111B21;
+    border-radius: 40px;
+    padding: 20px;
+    border: 1px solid #999;
+    overflow: auto;
+  }
+  .box >input{
+    border-radius: 10px;
+    height: 20px;
+    width: 90%;
+  }
+
+  .box >Button{
+    margin-top: 10px;
+    background-color: bisque;
+  }
