@@ -9,6 +9,7 @@ const Login = () => {
 
     //this is for pull or push data in the center store of the app
     const [{ }, dispatch] = useStateValue();
+    
     const signIn = () => {
         auth
             .signInWithPopup(provider)

@@ -20,6 +20,7 @@ const ChatBox = () => {
     const [roomName, setRoomName] = useState('');
     const [messages, setMessages] = useState([]);
     const [{ user }, dispatch] = useStateValue();
+    
     useEffect(() => {
         if (roomId) {
             db.collection('rooms')
@@ -61,7 +62,7 @@ const ChatBox = () => {
                         {new Date(
                             messages[messages.length - 1]?.
                                 timestamp?.toDate()
-                        ).toUTCString()}</p>
+                        ).toLocaleString(undefined, {timeZone: 'Asia/Kolkata'})}</p>
                 </div>
                 <div className="Chat_headerRight">
                     <IconButton>
@@ -84,7 +85,7 @@ const ChatBox = () => {
                         </span>
                         {message.message}
                         <span className="Chat_timestamp">
-                            {new Date(message.timestamp?.toDate()).toUTCString()}
+                            {new Date(message.timestamp?.toDate()).toLocaleString(undefined, {timeZone: 'Asia/Kolkata'})}
                         </span>
                     </p>
                 ))}
