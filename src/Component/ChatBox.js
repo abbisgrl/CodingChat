@@ -12,7 +12,6 @@ import '../Css/ChatBox.css';
 import { useStateValue } from "../Context/StateProvider";
 
 
-
 const ChatBox = () => {
     const [seed, setSeed] = useState('');
     const [input, setInput] = useState('');
