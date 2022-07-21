@@ -9,6 +9,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
+    {/* Providing the initial state and reducer to the app so that all the
+    component can use the state for taking the values and dispatch the values */}
       <StateProvider initialState={initialState}
         reducer={reducer}>
         <App />

@@ -13,6 +13,9 @@ import { useStateValue } from "../Context/StateProvider";
 
 
 const ChatBox = () => {
+    //various hooks and context hooks 
+    //seed for random avatar seeding ,input for the message setting,room id for taking 
+    //room id from url,room name hook for setting the room name taking from firebase ,
     const [seed, setSeed] = useState('');
     const [input, setInput] = useState('');
     const { roomId } = useParams();
@@ -20,6 +23,8 @@ const ChatBox = () => {
     const [messages, setMessages] = useState([]);
     const [{ user }, dispatch] = useStateValue();
     
+    //useEffect for setting the room name according to the room id and fetching all message
+    //from firebase to show in the chatbox in ascending order wrt to timestamp
     useEffect(() => {
         if (roomId) {
             db.collection('rooms')
@@ -35,10 +40,12 @@ const ChatBox = () => {
         }
     }, [roomId]);
 
+    //for seeding random avatar for different room
     useEffect(() => {
         setSeed(Math.floor(Math.random() * 5000));
     }, [roomId]);
 
+    //when some one send message this function will call
     function sendMessage(e) {
         e.preventDefault();
         db.collection('rooms').doc(roomId).collection('messages')
@@ -53,6 +60,11 @@ const ChatBox = () => {
 
     return (
         <div className="Chat">
+            {/* Dividing into three parts chat header ,chat body and chat footer
+            in chat header we will see the room name,last seen time and all necessary icons 
+            .I did not any functinality to the icons they are dummy */}
+
+            {/* Chat header */}
             <div className="Chat_header">
                 <Avatar src={`https://avatars.dicebear.com/api/human/${seed}.svg`} />
                 <div className="Chat_headerInfo">
@@ -63,6 +75,7 @@ const ChatBox = () => {
                                 timestamp?.toDate()
                         ).toLocaleString(undefined, {timeZone: 'Asia/Kolkata'})}</p>
                 </div>
+                {/* right side icons in chat header */}
                 <div className="Chat_headerRight">
                     <IconButton>
                         <AttachFile fontSize="small" color="primary" />
@@ -76,6 +89,8 @@ const ChatBox = () => {
                 </div>
             </div>
 
+                {/* Chat body and when message name=== userdisplay name then the user message will show
+                at right side */}
             <div className="Chat_body">
                 {messages.map((message) => (
                     <p className={`Chat_message  ${message.name === user.displayName && 'Chat_reciever'}`}>
@@ -92,6 +107,7 @@ const ChatBox = () => {
 
             </div>
 
+                    {/* chat footer .Only input form is working and other icons are just dummy */}
             <div className="Chat_footer">
                 <EmojiEmotionsIcon />
                 <form action="">

@@ -12,12 +12,15 @@ function App() {
   return (
     
     <div className="App">
-      {/*If user is not found then login page will render otherwise main box with sidebar and chat box will render*/}
+      {/*If user is not found then login page will render
+       otherwise main box with sidebar and chat box will render*/}
       {!user ? (
         <Login />
       ) : (
         <div className='main_box'>
           <Sidebar />
+          {/* Setting up the routing according to user id so that for 
+          different user,chatbox will show according to them */}
           <Routes>
             <Route path='/rooms/:roomId' element={
               <>

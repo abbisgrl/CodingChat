@@ -10,6 +10,7 @@ const Login = () => {
     //this is for pull or push data in the center store of the app
     const [{ }, dispatch] = useStateValue();
     
+    //sign in function using google auth provider
     const signIn = () => {
         auth
             .signInWithPopup(provider)
@@ -22,6 +23,7 @@ const Login = () => {
             .catch((error) => alert(error.message));
     }
     return (
+        // login page where logo and sign button will show
         <div className="Login">
             <div className="Login_container">
                 <img
