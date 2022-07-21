@@ -6,10 +6,13 @@ import { useState } from 'react';
 import Login from './Component/Login';
 import { useStateValue } from './Context/StateProvider';
 function App() {
+  //taking the user value from react context hook 
   const [{ user }, dispatch] = useStateValue();
 
   return (
+    
     <div className="App">
+      {/*If user is not found then login page will render otherwise main box with sidebar and chat box will render*/}
       {!user ? (
         <Login />
       ) : (
